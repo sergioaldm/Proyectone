@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Proyectone {
     
-    public class Producto{
+    public static class Producto{
 
         Scanner entradaAux = new Scanner (System.in);
         private int cantidad, vendidas=0;
@@ -77,14 +77,14 @@ public class Proyectone {
     
     public static void main(String[] args) {
         Scanner entradaEs = new Scanner (System.in);
-        int n,aux0, aux3=1,aux5;
+        int n,aux0, aux3=1,aux5,uno=0;
         String busqueda, aux1, aux4;
         double aux2,aux6,aux7=0;
         Producto total[]=new Producto[100];
         for (int i=0; i < total.length; i++){
         total[i]=new Producto();
         }
-        
+        for(int k=0; k<100;){
         System.out.println("TiendaSoft V1.0");
         System.out.println("PROGRAMA PARA LLEVAR A CABO LA CONTABILIDAD");
         System.out.println("---PELUCHITOS.COM---");
@@ -100,11 +100,14 @@ public class Proyectone {
         n=entradaEs.nextInt();
         switch (n){
             case 1:
-                for(int i=0;i<100;i++ ){
+                for(int i=0;i<100;){
                     aux0=total[i].getCantidad();
-                    if(aux0==0){total[i].crear();}
-                    else{System.out.println("Error, no se pueden almacenar mas productos es el sistema");}
+                    uno=i;
+                    if(aux0==0){total[i].crear();
+                    break;}
+                    else{i++;}                   
                 }
+                if(uno==100){System.out.println("Error, no se pueden almacenar mas productos es el sistema");};
             break;
                 
             case 2:
@@ -214,4 +217,5 @@ public class Proyectone {
         
     }
     
+    } 
 }
